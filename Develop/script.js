@@ -24,14 +24,59 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
-function generatePassword() {
-  //1. prompt the user for password criteria
+ //1. prompt the user for password criteria
          // A. Password length between 8-128
          // B. Lowercase, uppercase, special characters
-         var length = prompt('choose a password length between 8 and 128 character')
+  
+function generatePassword() {
+  //Characaters Included
+  let result = '';
+  let length = prompt('Choose a character length for your password between 8 and 128 characters');
+  if(isNaN(length)){
+    alert('Please input number.');
+   
+    return generatePassword()
+  }
+// 2. Validate the input.
+  if(length < 8 || length > 128) {
+    alert('Please choose between 8 and 128.')
+  }
 
-  // 2. Validate the input.
+  let hasUpper = confirm('Would you like for your password to contain upper case letters?');
+  let hasLower = confirm('How about lower case letters?');
+  let hasNumber = confirm('Numbers?');
+  let hasSpecial = confirm('Would you like a password with special characters?');
+
+  if (!hasUpper && !hasLower && !hasNumber && !hasSpecial) {
+    alert('Please stop playing and chose one character type');
+    return generatePassword
+  }
+
+  
+  // The IFs
+  if (hasUpper) {
+    chosen += upperLetters
+  }
+
+  if(hasLower) {
+    chosen += lowerLetters
+  }
+
+  if (hasNumber) {
+    chosen += numbers
+  }
+
+  if (hasSpecial) {
+    chosen += specialChar
+  }
+
+
+
+
+
+ 
+
+  
 
   //3. Generate password based on criteria
 
