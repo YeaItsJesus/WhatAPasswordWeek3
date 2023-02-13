@@ -24,7 +24,8 @@ function writePassword() {
   passwordText.value = password;
 
 }
- //1. prompt the user for password criteria
+ 
+//1. prompt the user for password criteria
          // A. Password length between 8-128
          // B. Lowercase, uppercase, special characters
   
@@ -39,7 +40,7 @@ function generatePassword() {
   }
 // 2. Validate the input.
   if(length < 8 || length > 128) {
-    alert('Please choose between 8 and 128.')
+    alert('Please choose between 8 and 128 characters.')
   }
 
   let hasUpper = confirm('Would you like for your password to contain upper case letters?');
@@ -48,7 +49,7 @@ function generatePassword() {
   let hasSpecial = confirm('Would you like a password with special characters?');
 
   if (!hasUpper && !hasLower && !hasNumber && !hasSpecial) {
-    alert('Please stop playing and chose one character type');
+    alert('Please stop playing and chose at least one character type');
     return generatePassword
   }
 
@@ -70,15 +71,13 @@ function generatePassword() {
     chosen += specialChar
   }
 
-
-
-
-
- 
-
-  
-
+  // FOR loop
+  for (var i = 0; i < length; i++) {
+    result += chosen.charAt(Math.floor(Math.random() * chosen.length));
+  }
+     
   //3. Generate password based on criteria
+            return result;
 
     //4. Display password on page
 
@@ -88,7 +87,12 @@ function generatePassword() {
 
 
 
-  return 'Generated Password will go here'
+ 
+
+  
+
+
+
 
 }
 
@@ -130,13 +134,7 @@ function generatePassword() {
 //var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
-}
 
 
 
