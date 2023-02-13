@@ -8,6 +8,15 @@ var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+//Variables
+let upperLetters = 'ABCDEFGHIJKLMOPQRSTUVWXYZ';
+let lowerLetters = 'abcdefghijklmopqrstuvwxyz';
+let numbers = '0123456789';
+let specialChar = '!@#$%^&*()_+=-{[]};/.?.,><';
+let chosen = '';
+
+
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -20,11 +29,12 @@ function generatePassword() {
   //1. prompt the user for password criteria
          // A. Password length between 8-128
          // B. Lowercase, uppercase, special characters
+         var length = prompt('choose a password length between 8 and 128 character')
 
   // 2. Validate the input.
 
   //3. Generate password based on criteria
-  
+
     //4. Display password on page
 
 
